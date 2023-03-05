@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MeShop.</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <div class="container-fluid">
+          <div class="col-9">
+              <a class="navbar-brand" href="#">Myshop</a>
+          </div>
+          <div class="col-3">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link" href="../index.html">Sign Up</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="../login.html">Login</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Shop</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="../cart/">My Cart</a>
+                    </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="../profile/">Profile</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </nav><br>
+    <main>
+      <aside>
+        <section>
+          <title>Colors</title>
+          <ul>
+            <li>
+              <input id="red" type="checkbox" name="color" class="color-checkbox" />
+              <label for="red">Red</label>
+            </li>
+            <li>
+              <input id="blue" type="checkbox" name="color" class="color-checkbox" />
+              <label for="blue">Blue</label>
+            </li>
+            <li>
+              <input id="green" type="checkbox" name="color" class="color-checkbox"/>
+              <label for="green">Green</label>
+            </li>
+            <li>
+              <input id="black" type="checkbox" name="color" class="color-checkbox"/>
+              <label for="black">Black</label>
+            </li>
+            <li>
+              <input id="white" type="checkbox" name="color" class="color-checkbox" />
+              <label for="white">White</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <title>Sizes</title>
+          <ul>
+            <li>
+              <input id="s" type="checkbox" name="color" class="size-checkbox" />
+              <label for="s">S</label>
+            </li>
+            <li>
+              <input id="m" type="checkbox" name="color" class="size-checkbox"/>
+              <label for="m">M</label>
+            </li>
+            <li>
+              <input id="l" type="checkbox" name="color" class="size-checkbox"/>
+              <label for="l">L</label>
+            </li>
+            <li>
+              <input id="xl" type="checkbox" name="color" class="size-checkbox" />
+              <label for="xl">XL</label>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <title>Rating</title>
+          <input
+            type="range"
+            id="range"
+            min="0"
+            max="5"
+            value="0"
+            list="values"
+          />
+          <datalist id="values">
+            <option value="0" label="0"></option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5" label="5"></option>
+          </datalist>
+        </section>
+        <section>
+          <title>Price Range</title>
+          <ul>
+            <li>
+              <input id="0-25" type="checkbox" name="prange" />
+              <label for="0-25">$0 to $25</label>
+            </li>
+            <li>
+              <input id="25-50" type="checkbox" name="prange" />
+              <label for="25-50">$25 to $50</label>
+            </li>
+            <li>
+              <input id="50-100" type="checkbox" name="prange" />
+              <label for="50-100">$50 to $100</label>
+            </li>
+            <li>
+              <input id="100on" type="checkbox" name="prange" />
+              <label for="100on">$100 onwards</label>
+            </li>
+          </ul>
+        </section>
+      </aside>
+      <main-content>
+        <input type="text" placeholder="Search" id="filterserach" onchange="searchFilter();" />
+        <div class="filters">
+          <div class="filter" onclick="filterproduct('All');">All</div>
+          <div class="filter" onclick="filterproduct('mens');">Mens</div>
+          <div class="filter" onclick="filterproduct('womens');">Womens</div>
+          <div class="filter" onclick="filterproduct('jewelery');">Jewelery</div>
+          <div class="filter" onclick="filterproduct('electronics');">Electronics</div>
+        </div>
+        <section style="background-color: #eee;">
+          <div class="text-center container py-5">
+            <div class="row"  id="items">
+            </div>
+          </div>
+        </section>
+
+      </main-content>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
