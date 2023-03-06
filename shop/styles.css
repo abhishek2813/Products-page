@@ -30,7 +30,7 @@ input[type="range"] {
   height: 2px;
   margin: 1rem auto;
 }
-
+/* 
 datalist {
   display: flex;
   justify-content: space-between;
@@ -175,4 +175,4 @@ main-content .items .item .circle {
 }
 .hide{
   display: none;
-}
+} */

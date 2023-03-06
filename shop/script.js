@@ -165,7 +165,7 @@ let cartData = JSON.parse(localStorage.getItem('cart')) || [];
   addCart(); 
 
 function displayProducts(products) {
-  const productsContainer = document.querySelector('.row');
+  const productsContainer = document.querySelector('#items');
 
   productsContainer.innerHTML = ''; // Clear the container before adding new products
 
