@@ -5,12 +5,15 @@ var currentitem = JSON.parse(localStorage.getItem("currentUser")); // getting cu
 if (!currentitem) {
     window.location.href = "../login.html";
 }
+
 var total=0;
 var items=0;
-var carditem=JSON.parse(localStorage.getItem("cart")); 
+var carditem=JSON.parse(localStorage.getItem("cart")) || []; 
 var data ="";
 var data2 ="";
-carditem.forEach((value, index) => {
+
+
+carditem.forEach((value,index) => {
     total +=Number(value.quantity*value.price);
     items +=value.quantity;
     data +=`<div class="card mb-3 mb-lg-0">
@@ -43,13 +46,25 @@ carditem.forEach((value, index) => {
                 <td>${value.quantity*value.price}</td>
             </tr>`;
 });
+document.getElementById("items").innerHTML = data;
+document.getElementById("item2").innerHTML = data2;
+document.getElementById("total").innerText ="$ "+ total;
 
 function removeItem(index) {
     carditem.splice(index, 1); // remove the item from the array
     localStorage.setItem("cart", JSON.stringify(carditem)); // update the local storage
     location.reload(); // reload the page to reflect the changes
 }
+document.getElementById("qty").innerHTML=items;
+if(items==0){
+  document.getElementById("img").innerHTML="<h2 class='text-center'><a href='../shop'>Go to Shop</a></h2><img src='../landingPagePic.png' class='w-100' />"
+ }
 
-document.getElementById("items").innerHTML = data;
-document.getElementById("item2").innerHTML = data2;
-document.getElementById("total").innerText ="$ "+ total;
+//CheckOut Button
+function payment(){
+  if(total==0){
+    return
+  }
+  window.location.href = "../razorpay/";
+}
+
