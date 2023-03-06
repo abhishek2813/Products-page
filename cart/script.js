@@ -57,7 +57,7 @@ function removeItem(index) {
 }
 document.getElementById("qty").innerHTML=items;
 if(items==0){
-  document.getElementById("img").innerHTML="<h2 class='text-center'><a href='../shop'>Go to Shop</a></h2><img src='../landingPagePic.png' class='w-100' />"
+  document.getElementById("img").innerHTML="<h4 class='text-center'><a style='text-decoration: none;' href='../shop'><i class='fa fa-shop'></i> Go to Shop</a></h4><img src='../landingPagePic.png' class='w-75' />"
  }
 
 //CheckOut Button
@@ -67,4 +67,3 @@ function payment(){
   }
   window.location.href = "../razorpay/";
 }
-

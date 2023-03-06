@@ -47,23 +47,23 @@
           <title>Colors</title>
           <ul>
             <li>
-              <input id="red" type="checkbox" name="color" class="color-checkbox" />
+              <input id="red" type="checkbox" data-color="Red" class="color-filter"  value="Red" />
               <label for="red">Red</label>
             </li>
             <li>
-              <input id="blue" type="checkbox" name="color" class="color-checkbox" />
+              <input id="blue" type="checkbox" data-color="Blue" class="color-filter" value="Blue"  />
               <label for="blue">Blue</label>
             </li>
             <li>
-              <input id="green" type="checkbox" name="color" class="color-checkbox"/>
+              <input id="green" type="checkbox" data-color="Green" class="color-filter" value="Green"  />
               <label for="green">Green</label>
             </li>
             <li>
-              <input id="black" type="checkbox" name="color" class="color-checkbox"/>
+              <input id="black" type="checkbox" data-color="Black" class="color-filter" value="Black"  />
               <label for="black">Black</label>
             </li>
             <li>
-              <input id="white" type="checkbox" name="color" class="color-checkbox" />
+              <input id="white" type="checkbox" data-color="White" class="color-filter"  value="White" />
               <label for="white">White</label>
             </li>
           </ul>
@@ -72,19 +72,19 @@
           <title>Sizes</title>
           <ul>
             <li>
-              <input id="s" type="checkbox" name="color" class="size-checkbox" />
+              <input id="s" type="checkbox" name="color" value="S" class="size-filter" />
               <label for="s">S</label>
             </li>
             <li>
-              <input id="m" type="checkbox" name="color" class="size-checkbox"/>
+              <input id="m" type="checkbox" name="color" value="M" class="size-filter"/>
               <label for="m">M</label>
             </li>
             <li>
-              <input id="l" type="checkbox" name="color" class="size-checkbox"/>
+              <input id="l" type="checkbox" name="color" value="L" class="size-filter"/>
               <label for="l">L</label>
             </li>
             <li>
-              <input id="xl" type="checkbox" name="color" class="size-checkbox" />
+              <input id="xl" type="checkbox" name="color" value="XL" class="size-filter" />
               <label for="xl">XL</label>
             </li>
           </ul>
@@ -98,6 +98,7 @@
             max="5"
             value="0"
             list="values"
+            class="rating-filter"
           />
           <datalist id="values">
             <option value="0" label="0"></option>
@@ -112,26 +113,22 @@
           <title>Price Range</title>
           <ul>
             <li>
-              <input id="0-25" type="checkbox" name="prange" />
-              <label for="0-25">$0 to $25</label>
-            </li>
-            <li>
-              <input id="25-50" type="checkbox" name="prange" />
-              <label for="25-50">$25 to $50</label>
-            </li>
-            <li>
-              <input id="50-100" type="checkbox" name="prange" />
-              <label for="50-100">$50 to $100</label>
-            </li>
-            <li>
-              <input id="100on" type="checkbox" name="prange" />
-              <label for="100on">$100 onwards</label>
+              <label for="price-slider">Price Range:</label>
+              <input type="range" class="price-slider" id="price-slider" min="0" max="100" step="4" value="0" list="values">
+              <datalist id="values">
+                <option value="0" label="0"></option>
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5" label="5"></option>
+              </datalist>
             </li>
           </ul>
         </section>
       </aside>
       <main-content>
-        <input type="text" placeholder="Search" id="filterserach" onchange="searchFilter();" />
+        <input type="text" placeholder="Search" id="filterserach" />
         <div class="filters">
           <div class="filter" onclick="filterproduct('All');">All</div>
           <div class="filter" onclick="filterproduct('mens');">Mens</div>

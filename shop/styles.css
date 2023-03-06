@@ -38,29 +38,6 @@ datalist {
   width: 100%;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  position: sticky;
-  z-index: 100;
-  top: 0;
-
-  background-color: black;
-  border-bottom: 1px solid white;
-  padding: 1rem;
-  font-size: 1rem;
-}
-
-nav .brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-nav .nav-items a {
-  margin: 0 1rem;
-}
 
 main {
   display: flex;
