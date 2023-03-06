@@ -19,6 +19,7 @@ login.addEventListener('submit', (e) => {
         const currentUserObj = {
             email: currentUser.email,
             name: currentUser.name,
+            token: generateToken(),
           //  password:currentUser.password,
         };
         // Store the current user object in local storage
@@ -31,3 +32,13 @@ login.addEventListener('submit', (e) => {
     }
 
 });
+// A simple function to generate a random 16 character string
+function generateToken() {
+    
+    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let token = '';
+    for (let i = 0; i < 16; i++) {
+        token += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    return token;
+}
