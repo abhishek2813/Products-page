@@ -5,8 +5,52 @@ var currentitem = JSON.parse(localStorage.getItem("currentUser")); // getting cu
 if (!currentitem) {
     window.location.href = "../login.html";
 }
-var items = JSON.parse(localStorage.getItem("products")); 
+var total=0;
+var items=0;
 var carditem=JSON.parse(localStorage.getItem("cart")); 
-carditem.map((value)=>{
-    console.log(value.id);
-})
+var data ="";
+var data2 ="";
+carditem.forEach(value => {
+    total +=Number(value.quantity*value.price);
+    items +=value.quantity;
+    data +=`                  <div class="card mb-3 mb-lg-0">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+          <div>
+            <img
+              src="${value.img}"
+              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+          </div>
+          <div class="ms-3">
+            <h5>${value.name}</h5>
+          </div>
+        </div>
+        <div class="d-flex flex-row align-items-center">
+          <div style="width: 50px;">
+            <h5 class="fw-normal mb-0">${value.quantity}</h5>
+          </div>
+          <div style="width: 80px;">
+            <h5 class="mb-0">$${value.quantity*value.price}</h5>
+          </div>
+          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+ data2 +=`
+ <tr>
+                              <th scope="row">${value.id}</th>
+                              <td>${value.name}</td>
+                              <td>${value.quantity}</td>
+                              <td>${value.quantity*value.price}</td>
+                            </tr>
+ `;
+});
+
+document.getElementById("items").innerHTML = data;
+document.getElementById("item2").innerHTML = data2;
+document.getElementById("total").innerText ="$ "+ total;
+
+console.log(total);

@@ -80,7 +80,7 @@ async function main() {
         </div>
         <div class="card-footer">
           <div class="row">
-            <button class="btn btn-dark add-to-cart-button" data-id="${value.id}" type="submit">Add cart</button>
+            <button class="btn btn-dark add-to-cart-button" data-name="${value.title}" data-img="${value.image}" data-price="${value.price}" data-id="${value.id}" type="submit">Add cart</button>
           </div>
         </div>
       </div>
@@ -99,24 +99,31 @@ async function main() {
       button.addEventListener('click', () => {
         console.log("clicked");
         const id = button.getAttribute('data-id');
-        addToCart(id);
+        const name = button.getAttribute('data-name');
+        const price = button.getAttribute('data-price');
+        const img = button.getAttribute('data-img');
+        addToCart(id,name,price,img);
       });
     });
   }
   // Add a product to the cart
-  function addToCart(id) {
+  function addToCart(id,name,price,img) {
     // Check if the item is already in the cart
     const itemIndex = cartData.findIndex(item => item.id === id);
     if (itemIndex === -1) {
       // If the item is not in the cart, add it with a quantity of 1
       const item = {
         id: id,
+        name:name,
+        price:price,
+        img:img,
         quantity: 1
       };
       cartData.push(item);
     } else {
       // If the item is already in the cart, increase its quantity by 1
       cartData[itemIndex].quantity++;
+      
     }
     // Save the cart data to local storage
     localStorage.setItem('cart', JSON.stringify(cartData));
