@@ -123,7 +123,6 @@ async function main() {
     } else {
       // If the item is already in the cart, increase its quantity by 1
       cartData[itemIndex].quantity++;
-      
     }
     // Save the cart data to local storage
     localStorage.setItem('cart', JSON.stringify(cartData));
